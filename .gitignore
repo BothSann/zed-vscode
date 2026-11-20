@@ -1,0 +1,3 @@
+backup/
+*.pre-link
+.DS_Store
