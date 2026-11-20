@@ -74,7 +74,8 @@
 	// JS/TS/JSON/CSS: Biome formats on save. Style comes from the project's biome.json,
 	// or ~/biome.json (../biome/home.biome.json) when the project has none. No lint auto-fix,
 	// no import sorting on save. HTML/Markdown/YAML: Zed's built-in Prettier.
-	// PHP: Intelephense formats on save. Pint is manual: alt-shift-p (see tasks.json).
+	// PHP: Pint formats on save (via ~/.local/bin/zed-pint, linked from ../bin/zed-pint).
+	// Projects without vendor/bin/pint are left untouched. Intelephense still does IntelliSense.
 	// Intelephense licence key is read from ~/intelephense/licence.txt (not in this file).
 	"languages": {
 		"JavaScript": { "formatter": { "language_server": { "name": "biome" } } },
@@ -86,7 +87,7 @@
 		"PHP": {
 			"tab_size": 4,
 			"language_servers": ["intelephense", "!phpactor", "..."],
-			"formatter": { "language_server": { "name": "intelephense" } }
+			"formatter": { "external": { "command": "/Users/user/.local/bin/zed-pint", "arguments": [] } }
 		}
 	}
 }

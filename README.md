@@ -20,6 +20,9 @@ already there, it gets moved to `<name>.pre-link` first.
 | `zed/settings.json`, `keymap.json`, `tasks.json` | `~/.config/zed/` |
 | `vscode/settings.json`, `keybindings.json`, `tasks.json` | `~/Library/Application Support/Code/User/` (Default profile) |
 | `biome/home.biome.json` | `~/biome.json` |
+| `biome/redant.biome.json` | `~/Dev/redant/biome.json` |
+| `bin/zed-pint` | `~/.local/bin/zed-pint` |
+| `claude/format-after-edit.sh` | `~/.claude/hooks/format-after-edit.sh` |
 
 Secrets aren't stored here. The Intelephense licence key lives in
 `~/intelephense/licence.txt`, and both editors read it from there.
@@ -50,8 +53,8 @@ Secrets aren't stored here. The Intelephense licence key lives in
 | Format on save | `format_on_save` | `editor.formatOnSave` | on |
 | JS/TS/JSON/CSS formatter | `languages.*.formatter` → biome | `[lang].editor.defaultFormatter` → `biomejs.biome` | Biome |
 | HTML/MD/YAML formatter | built-in Prettier | `esbenp.prettier-vscode` | Prettier |
-| PHP formatter | `languages.PHP.formatter` → intelephense | `[php].editor.defaultFormatter` | Intelephense |
-| Pint (manual) | `tasks.json` + `alt-shift-p` | `tasks.json` + `alt+shift+p` | current file / whole project |
+| PHP formatter | `languages.PHP.formatter` → `zed-pint` | `[php].editor.defaultFormatter` → `open-southeners.laravel-pint` | Pint (project's own only) |
+| Pint whole project | `tasks.json` | `tasks.json` | manual task |
 
 A project's own `.editorconfig` overrides tab size and whitespace in both editors.
 
@@ -68,6 +71,21 @@ One catch: Biome only reads a project's `.editorconfig` when that project has it
 So work projects get their own folder-level copy: `biome/redant.biome.json` is linked to
 `~/Dev/redant/biome.json`. It's the same style but with 4 spaces, matching those projects'
 `.editorconfig`. It sits outside every work repo, so nothing gets committed there.
+
+## Claude Code (AI agent)
+
+Claude Code writes files straight to disk, so its code used to get reformatted the
+next time you hit save. `claude/format-after-edit.sh` is a `PostToolUse` hook in
+`~/.claude/settings.json`. It runs after every Edit or Write and formats the file
+with the same tool the editors use on save:
+
+| Files | Tool |
+|---|---|
+| JS/TS/JSON/CSS | `biome format --write` (same `biome.json` lookup as the editors) |
+| HTML/MD/YAML/SCSS/Vue | `prettier --write` |
+| PHP (not Blade) | project's own `vendor/bin/pint`, skipped if the project has none |
+
+The hook itself is in `~/.claude/settings.json`, which isn't in this repository.
 
 ## Backups
 
