@@ -1,0 +1,92 @@
+// Zed settings — the "boss" copy. VS Code (../vscode/settings.json) is matched to this.
+// See ../README.md for the side-by-side table of every shared setting.
+{
+	// ---- Look (shared with VS Code) ----
+	"theme": "Zedokai Light",
+	"icon_theme": "Material Icon Theme",
+	"buffer_font_family": "JetBrainsMono Nerd Font",
+	"buffer_font_features": { "calt": true },
+	"buffer_font_size": 15,
+	"buffer_line_height": { "custom": 1.5 },
+	"base_keymap": "VSCode",
+
+	// ---- Editor behaviour (shared with VS Code) ----
+	"tab_size": 2,
+	"soft_wrap": "none",
+	"show_wrap_guides": true,
+	"wrap_guides": [120],
+	"minimap": { "show": "never" },
+	"colorize_brackets": true,
+	"indent_guides": { "enabled": true },
+	"remove_trailing_whitespace_on_save": true,
+	"ensure_final_newline_on_save": true,
+	"autosave": "on_focus_change",
+	"format_on_save": "on",
+
+	// ---- Zed only ----
+	"edit_predictions": { "mode": "eager" },
+	"cli_default_open_behavior": "new_window",
+	"markdown_preview": { "limit_content_width": false },
+
+	// ---- Panel layout ----
+	"project_panel": { "dock": "left" },
+	"outline_panel": { "dock": "left" },
+	"git_panel": { "dock": "left" },
+	"agent": { "dock": "right" },
+	"terminal": {
+		"dock": "bottom",
+		"font_family": "JetBrainsMono Nerd Font Mono",
+		"font_size": 14,
+		"line_height": "comfortable"
+	},
+
+	// ---- Privacy: no usage stats (AI stays on) ----
+	"telemetry": { "diagnostics": false, "metrics": false },
+
+	// ---- Performance: don't scan/watch huge generated folders ----
+	"file_scan_exclusions": [
+		"**/.git",
+		"**/.svn",
+		"**/.hg",
+		"**/.jj",
+		"**/CVS",
+		"**/.DS_Store",
+		"**/Thumbs.db",
+		"**/.classpath",
+		"**/.settings",
+		"**/node_modules",
+		"**/vendor",
+		"**/.next",
+		"**/dist",
+		"**/build",
+		"**/storage"
+	],
+
+	// ---- Extensions Zed installs automatically ----
+	"auto_install_extensions": {
+		"biome": true,
+		"php": true,
+		"html": true,
+		"emmet": true
+	},
+
+	// ---- Formatting ----
+	// JS/TS/JSON/CSS: Biome formats on save. Style comes from the project's biome.json,
+	// or ~/biome.json (../biome/home.biome.json) when the project has none. No lint auto-fix,
+	// no import sorting on save. HTML/Markdown/YAML: Zed's built-in Prettier.
+	// PHP: Intelephense formats on save. Pint is manual: alt-shift-p (see tasks.json).
+	// Intelephense licence key is read from ~/intelephense/licence.txt (not in this file).
+	"languages": {
+		"JavaScript": { "formatter": { "language_server": { "name": "biome" } } },
+		"TypeScript": { "formatter": { "language_server": { "name": "biome" } } },
+		"TSX": { "formatter": { "language_server": { "name": "biome" } } },
+		"JSON": { "formatter": { "language_server": { "name": "biome" } } },
+		"JSONC": { "formatter": { "language_server": { "name": "biome" } } },
+		"CSS": { "formatter": { "language_server": { "name": "biome" } } },
+		"PHP": {
+			"tab_size": 4,
+			"language_servers": ["intelephense", "!phpactor", "..."],
+			"formatter": { "language_server": { "name": "intelephense" } }
+		}
+	}
+}

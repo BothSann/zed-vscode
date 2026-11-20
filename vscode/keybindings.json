@@ -1,0 +1,9 @@
+// VS Code keybindings — mirror of ../zed/keymap.json
+[
+  {
+    "key": "alt+shift+p",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Pint: format current file",
+    "when": "editorLangId == php"
+  }
+]

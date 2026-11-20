@@ -1,0 +1,22 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Pint: format current file",
+            "type": "shell",
+            "command": "${workspaceFolder}/vendor/bin/pint",
+            "args": ["${file}"],
+            "options": { "cwd": "${workspaceFolder}" },
+            "presentation": { "reveal": "silent", "panel": "shared", "clear": true },
+            "problemMatcher": []
+        },
+        {
+            "label": "Pint: format whole project",
+            "type": "shell",
+            "command": "${workspaceFolder}/vendor/bin/pint",
+            "options": { "cwd": "${workspaceFolder}" },
+            "presentation": { "reveal": "always", "panel": "shared", "clear": true },
+            "problemMatcher": []
+        }
+    ]
+}

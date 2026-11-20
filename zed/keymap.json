@@ -1,0 +1,10 @@
+// Zed keymap. Base keymap is VS Code (see settings.json "base_keymap").
+[
+	{
+		"context": "Editor && extension == php",
+		"bindings": {
+			// Same as VS Code: run Pint on the current file
+			"alt-shift-p": ["task::Spawn", { "task_name": "Pint: format current file" }]
+		}
+	}
+]

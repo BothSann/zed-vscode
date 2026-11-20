@@ -1,0 +1,16 @@
+// Zed tasks — mirror of ../vscode/tasks.json
+[
+	{
+		"label": "Pint: format current file",
+		"command": "\"$ZED_WORKTREE_ROOT/vendor/bin/pint\" \"$ZED_FILE\"",
+		"cwd": "$ZED_WORKTREE_ROOT",
+		"reveal": "never",
+		"hide": "on_success"
+	},
+	{
+		"label": "Pint: format whole project",
+		"command": "\"$ZED_WORKTREE_ROOT/vendor/bin/pint\"",
+		"cwd": "$ZED_WORKTREE_ROOT",
+		"reveal": "always"
+	}
+]
