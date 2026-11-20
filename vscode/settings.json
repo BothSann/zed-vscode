@@ -50,13 +50,16 @@
   // ESLint only does anything in projects with an ESLint config
   "eslint.useFlatConfig": true,
 
-  // PHP: Intelephense formats on save. Pint is manual: alt+shift+p (see tasks.json).
+  // PHP: Pint formats on save, using only the project's own vendor/bin/pint.
+  // Projects without Pint are left untouched. Intelephense still does IntelliSense.
   // Licence key is read from ~/intelephense/licence.txt (not in this file).
   "[php]": {
     "editor.tabSize": 4,
-    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+    "editor.defaultFormatter": "open-southeners.laravel-pint"
   },
-  "intelephense.format.enable": true,
+  "intelephense.format.enable": false,
+  "laravel-pint.enable": true,
+  "laravel-pint.fallbackToGlobalBin": false,
   "php.suggest.basic": false,
   "php.validate.enable": false,
 

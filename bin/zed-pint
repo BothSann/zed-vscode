@@ -1,0 +1,5 @@
+#!/bin/sh
+# Zed PHP formatter: runs Laravel Pint if the project has it, else passes code through unchanged.
+tmp="$(mktemp -t zedpint).php"; cat > "$tmp"
+[ -x ./vendor/bin/pint ] && ./vendor/bin/pint --quiet "$tmp" >/dev/null 2>&1
+cat "$tmp"; rm -f "$tmp"
