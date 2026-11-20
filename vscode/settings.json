@@ -1,0 +1,78 @@
+// VS Code settings (Default profile) — matched to Zed (../zed/settings.json), which is the boss.
+// See ../README.md for the side-by-side table of every shared setting.
+{
+  // ---- Look (shared with Zed) ----
+  "workbench.colorTheme": "Monokai Pro Light",
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.fontFamily": "'JetBrainsMono Nerd Font', Menlo, monospace",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 15,
+  "editor.lineHeight": 1.5,
+  "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font Mono'",
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.lineHeight": 1.618, // = Zed "comfortable"
+
+  // ---- Editor behaviour (shared with Zed) ----
+  "editor.tabSize": 2,
+  "editor.detectIndentation": true,
+  "editor.wordWrap": "off",
+  "editor.rulers": [120],
+  "editor.minimap.enabled": false,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.indentation": true,
+  "editor.guides.bracketPairs": "active",
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.autoSave": "onFocusChange",
+  "editor.formatOnSave": true,
+
+  // ---- Formatting ----
+  // JS/TS/JSON/CSS: Biome on save. Style from the project's biome.json, or ~/biome.json
+  // (../biome/home.biome.json) when the project has none. No lint auto-fix, no import sorting.
+  "[javascript]": { "editor.defaultFormatter": "biomejs.biome" },
+  "[javascriptreact]": { "editor.defaultFormatter": "biomejs.biome" },
+  "[typescript]": { "editor.defaultFormatter": "biomejs.biome" },
+  "[typescriptreact]": { "editor.defaultFormatter": "biomejs.biome" },
+  "[json]": { "editor.defaultFormatter": "biomejs.biome" },
+  "[jsonc]": { "editor.defaultFormatter": "biomejs.biome" },
+  "[css]": { "editor.defaultFormatter": "biomejs.biome" },
+  "biome.lsp.bin": "/opt/homebrew/bin/biome",
+  "biome.suggestInstallingGlobally": false,
+
+  // HTML/Markdown/YAML/Vue/SCSS: Prettier (same as Zed's built-in Prettier)
+  "[html]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[markdown]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[yaml]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[vue]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[scss]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+
+  // ESLint only does anything in projects with an ESLint config
+  "eslint.useFlatConfig": true,
+
+  // PHP: Intelephense formats on save. Pint is manual: alt+shift+p (see tasks.json).
+  // Licence key is read from ~/intelephense/licence.txt (not in this file).
+  "[php]": {
+    "editor.tabSize": 4,
+    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+  },
+  "intelephense.format.enable": true,
+  "php.suggest.basic": false,
+  "php.validate.enable": false,
+
+  // ---- Misc ----
+  "files.associations": {
+    ".env*": "dotenv"
+  },
+  "json.schemaDownload.trustedDomains": {
+    "https://schemastore.azurewebsites.net/": true,
+    "https://raw.githubusercontent.com/microsoft/vscode/": true,
+    "https://raw.githubusercontent.com/devcontainers/spec/": true,
+    "https://www.schemastore.org/": true,
+    "https://json.schemastore.org/": true,
+    "https://spec.openapis.org/": true,
+    "https://json-schema.org/": true,
+    "https://developer.microsoft.com/json-schemas/": true,
+    "https://biomejs.dev": true
+  }
+}
