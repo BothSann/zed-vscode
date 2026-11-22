@@ -41,12 +41,14 @@ Secrets aren't stored here. The Intelephense licence key lives in
 | Terminal size | `terminal.font_size` | `terminal.integrated.fontSize` | 14 |
 | Terminal line height | `terminal.line_height` | `terminal.integrated.lineHeight` | comfortable = 1.618 |
 | Shortcuts | `base_keymap` | (native) | VS Code |
+| Collapse all folders | `keymap.json` → `project_panel::CollapseAllEntries` | `keybindings.json` → `workbench.files.action.collapseExplorerFolders` | ⌘← in file tree |
 | Tab size | `tab_size` (PHP: `languages.PHP.tab_size`) | `editor.tabSize` (PHP: `[php]`) | 2, PHP 4 |
 | Ruler | `wrap_guides` | `editor.rulers` | 120 |
-| Soft wrap | `soft_wrap` | `editor.wordWrap` | off |
+| Soft wrap | `soft_wrap: editor_width` | `editor.wordWrap: on` | on (at window edge) |
 | Minimap | `minimap.show` | `editor.minimap.enabled` | off |
 | Bracket colours | `colorize_brackets` | `editor.bracketPairColorization.enabled` | on |
 | Indent guides | `indent_guides.enabled` | `editor.guides.indentation` | on |
+| Error text at line end | `diagnostics.inline.enabled` | Error Lens extension (not installed) | off |
 | Trim trailing spaces | `remove_trailing_whitespace_on_save` | `files.trimTrailingWhitespace` | on |
 | Final newline | `ensure_final_newline_on_save` | `files.insertFinalNewline` | on |
 | Autosave | `autosave` | `files.autoSave` | on focus change |
