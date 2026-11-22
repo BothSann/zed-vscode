@@ -1,2 +1,17 @@
-// VS Code keybindings. Empty on purpose: Pint now runs on save.
-[]
+// Cmd+` toggles the terminal; Ctrl+` is left for Ghostty.
+// Cmd+Left in the file tree collapses every open folder (same in Zed).
+[
+  {
+    "key": "cmd+`",
+    "command": "workbench.action.terminal.toggleTerminal"
+  },
+  {
+    "key": "ctrl+`",
+    "command": "-workbench.action.terminal.toggleTerminal"
+  },
+  {
+    "key": "cmd+left",
+    "command": "workbench.files.action.collapseExplorerFolders",
+    "when": "filesExplorerFocus && !inputFocus"
+  }
+]

@@ -1,2 +1,18 @@
 // Zed keymap. Base keymap is VS Code (see settings.json "base_keymap").
-[]
+// Cmd+` toggles the terminal panel; Ctrl+` is left for Ghostty.
+// Cmd+Left in the file tree collapses every open folder (same in VS Code).
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-`": "terminal_panel::Toggle",
+      "ctrl-`": null
+    }
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "cmd-left": "project_panel::CollapseAllEntries"
+    }
+  }
+]

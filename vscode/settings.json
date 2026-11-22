@@ -9,13 +9,12 @@
   "editor.fontSize": 15,
   "editor.lineHeight": 1.5,
   "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font Mono'",
-  "terminal.integrated.fontSize": 14,
   "terminal.integrated.lineHeight": 1.618, // = Zed "comfortable"
 
   // ---- Editor behaviour (shared with Zed) ----
   "editor.tabSize": 2,
   "editor.detectIndentation": true,
-  "editor.wordWrap": "off",
+  "editor.wordWrap": "on",
   "editor.rulers": [120],
   "editor.minimap.enabled": false,
   "editor.bracketPairColorization.enabled": true,
@@ -64,6 +63,8 @@
   "php.validate.enable": false,
 
   // ---- Misc ----
+  // Open localhost links in the normal browser, not VS Code's built-in one
+  "workbench.browser.openLocalhostLinks": false,
   "files.associations": {
     ".env*": "dotenv"
   },
@@ -77,5 +78,12 @@
     "https://json-schema.org/": true,
     "https://developer.microsoft.com/json-schemas/": true,
     "https://biomejs.dev": true
+  },
+  "github.copilot.nextEditSuggestions.eagerness": "low",
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
   }
 }
